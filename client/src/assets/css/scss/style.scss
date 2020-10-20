@@ -1,0 +1,73 @@
+nav {
+  z-index: 10;
+  background: white;
+}
+
+.over-lay {
+  position: fixed;
+  width: 100%;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.3);
+  top: 0;
+  left: 0;
+  z-index: 20;
+}
+
+.add-form {
+  position: absolute;
+  z-index: 30;
+  background: white;
+  width: 35%;
+  min-width: 320px;
+  height: 60%;
+  textarea {
+    height: 20rem;
+    min-height: 160px;
+
+    @media only screen and (max-width: 640px) {
+      height: 160px;
+    }
+  }
+  button {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+  }
+}
+
+.post-list-group {
+  width: 50%;
+  @media only screen and (max-width: 640px) {
+    width: 100%;
+    margin-top: 12rem;
+  }
+  li {
+    text-align: center;
+  }
+  span {
+    width: 50%;
+  }
+}
+
+.post {
+  position: absolute;
+  width: 35%;
+  min-width: 320px;
+  background: white;
+  z-index: 30;
+  h1 {
+    margin: 10px 0;
+  }
+  small {
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
+}
+
+.icons-ctn {
+  right: 0;
+  z-index: 25;
+  background: red;
+  // width: 10rem;
+}

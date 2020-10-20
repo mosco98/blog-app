@@ -4,7 +4,7 @@ import axios from 'axios'
 import storage from '../../utils/Storage'
 import auth from '../../utils/Auth'
 
-const SERVER = 'http://localhost:8080'
+const SERVER = 'https://blog-app-moscode.herokuapp.com'
 
 const Register = ({ history }) => {
   const [name, setName] = useState('')

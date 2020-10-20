@@ -4,7 +4,7 @@ import axios from 'axios'
 import storage from '../../utils/Storage'
 import EditPostForm from '../EditPostForm'
 
-const SERVER = 'http://localhost:8080'
+const SERVER = 'https://blog-app-moscode.herokuapp.com'
 
 const Post = ({ updateViewPost, selectedPost, SelectPostHandler }) => {
   const [showModal, updateShowModal] = useState(false)

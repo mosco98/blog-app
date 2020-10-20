@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import axios from 'axios'
 import storage from '../../utils/Storage'
 
-const SERVER = 'http://localhost:8080'
+const SERVER = 'https://blog-app-moscode.herokuapp.com'
 
 const EditPostForm = ({ updateShowModal, title, body, id, SelectPostHandler }) => {
   const [newTitle, setNewTitle] = useState('')

@@ -15,15 +15,28 @@ nav {
 
 .add-form {
   position: absolute;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
   z-index: 30;
   background: white;
   width: 35%;
   min-width: 320px;
-  height: 60%;
+  height: auto;
 }
 
 .add-form textarea {
-  height: 20rem;
+  height: 15rem;
   min-height: 160px;
 }
 
@@ -34,7 +47,8 @@ nav {
 }
 
 .add-form button {
-  position: absolute;
+  -ms-flex-item-align: end;
+      align-self: flex-end;
   right: 0;
   bottom: 0;
 }
@@ -68,12 +82,6 @@ nav {
 
 .post h1 {
   margin: 10px 0;
-}
-
-.post small {
-  position: absolute;
-  top: 0;
-  right: 0;
 }
 
 .icons-ctn {

@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from 'react'
-import { AddPostForm, NavBar, Post, PostLink } from '../../components'
 import axios from 'axios'
+import React, { useEffect, useState } from 'react'
 
+import { AddPostForm, NavBar, Post, PostLink } from '../../components'
 import storage from '../../utils/Storage'
 
 const SERVER = 'https://blog-app-moscode.herokuapp.com'
@@ -12,6 +12,7 @@ const Main = () => {
   const [showModal, updateShowModal] = useState(false)
   const [viewPost, updateViewPost] = useState(false)
   const [selectedPost, setSelectedPost] = useState({})
+
   function getPosts() {
     axios
       .get(`${SERVER}/posts`, { headers: { Authorization: `Bearer ${storage.getToken()}` } })

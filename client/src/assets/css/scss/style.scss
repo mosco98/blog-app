@@ -15,13 +15,17 @@ nav {
 
 .add-form {
   position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
   z-index: 30;
   background: white;
   width: 35%;
   min-width: 320px;
-  height: 60%;
+  height: auto;
   textarea {
-    height: 20rem;
+    height: 15rem;
     min-height: 160px;
 
     @media only screen and (max-width: 640px) {
@@ -29,9 +33,8 @@ nav {
     }
   }
   button {
-    position: absolute;
-    right: 0;
-    bottom: 0;
+    // position: absolute;
+    align-self: flex-end;
   }
 }
 
@@ -58,7 +61,7 @@ nav {
   h1 {
     margin: 10px 0;
   }
-  small {
+  span {
     position: absolute;
     top: 0;
     right: 0;

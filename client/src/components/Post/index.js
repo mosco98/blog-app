@@ -1,6 +1,7 @@
-import React, { useState } from 'react'
-import { Trash2, Edit2 } from 'react-feather'
 import axios from 'axios'
+import React, { useState } from 'react'
+import { Edit2, Trash2 } from 'react-feather'
+
 import storage from '../../utils/Storage'
 import EditPostForm from '../EditPostForm'
 
@@ -39,14 +40,26 @@ const Post = ({ updateViewPost, selectedPost, SelectPostHandler }) => {
           className="flex items-center justify-center w-full h-screen fixed overflow-y-scroll h-auto"
           style={{ zIndex: '20' }}>
           <div className="over-lay" onClick={() => updateViewPost(false)} />
-          <div className="post p-4 text-center shadow-sm rounded flex items-center justify-between">
-            <div style={{ width: '95%' }}>
-              <h1 className="text-2xl font-bold text-center">{title}</h1>
-              <p>{body}</p>
+          <div className="post p-5 shadow-sm rounded flex flex-col items-center justify-center">
+            <div>
+              <h1 className="text-1xl font-bold text-center">{title}</h1>
+              <small className="text-left" style={{ fontSize: '15px' }}>
+                {body}
+              </small>
             </div>
-            <span className="flex flex-col items-center justify-center" style={{ width: '5%' }}>
-              <Trash2 className="my-2 cursor-pointer" onClick={() => DeletePostHandler(_id)} />
-              <Edit2 className="my-2 cursor-pointer" onClick={() => updateShowModal(true)} />
+            <span className="self-end flex">
+              <Trash2
+                className="my-3 mx-1 cursor-pointer"
+                color="red"
+                size="19"
+                onClick={() => DeletePostHandler(_id)}
+              />
+              <Edit2
+                className="my-3 mx-1 cursor-pointer"
+                color="blue"
+                size="19"
+                onClick={() => updateShowModal(true)}
+              />
             </span>
           </div>
         </div>

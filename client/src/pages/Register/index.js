@@ -1,8 +1,10 @@
+import axios from 'axios'
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
-import axios from 'axios'
-import storage from '../../utils/Storage'
+
+import { Alert } from '../../components'
 import auth from '../../utils/Auth'
+import storage from '../../utils/Storage'
 
 const SERVER = 'https://blog-app-moscode.herokuapp.com'
 
@@ -11,6 +13,8 @@ const Register = ({ history }) => {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [password2, setPassword2] = useState('')
+  const [error, updateError] = useState(false)
+  const [errMsg, setErrMsg] = useState('')
 
   function SubmitForm(e) {
     e.preventDefault()
@@ -26,12 +30,18 @@ const Register = ({ history }) => {
           storage.setToken(token)
           auth.onAuthChange()
           history.push('/main')
+          updateError(false)
+          setErrMsg('')
         }
       })
-      .catch((err) => console.log(err))
+      .catch((err) => {
+        updateError(true)
+        setErrMsg(err.message)
+      })
   }
   return (
     <div className="w-full h-screen bg-green-100 flex items-center justify-center">
+      {error && <Alert error={error} errMsg={errMsg} />}
       <div className="w-full max-w-xs">
         <form className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4" onSubmit={SubmitForm}>
           <div className="mb-4">
@@ -87,7 +97,7 @@ const Register = ({ history }) => {
             <button
               className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
               type="submit">
-              Sign In
+              Register
             </button>
             <small className="inline-block align-baseline ">
               Got an account?

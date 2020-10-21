@@ -1,14 +1,18 @@
-import React, { useState } from 'react'
 import axios from 'axios'
+import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
-import storage from '../../utils/Storage'
+
+import { Alert } from '../../components'
 import auth from '../../utils/Auth'
+import storage from '../../utils/Storage'
 
 const SERVER = 'https://blog-app-moscode.herokuapp.com'
 
 const Login = ({ history }) => {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
+  const [error, updateError] = useState(false)
+  const [errMsg, setErrMsg] = useState('')
 
   function SubmitForm(e) {
     e.preventDefault()
@@ -22,13 +26,22 @@ const Login = ({ history }) => {
           } = data
           storage.setToken(token)
           auth.onAuthChange()
+          updateError(false)
+          setErrMsg('')
           history.push('/app')
+        } else {
+          updateError(true)
+          setErrMsg(data.msg)
         }
       })
-      .catch((err) => console.log(err))
+      .catch((err) => {
+        updateError(true)
+        setErrMsg(err.message)
+      })
   }
   return (
     <div className="w-full h-screen bg-green-100 flex items-center justify-center">
+      {error && <Alert errMsg={errMsg} error={error} />}
       <div className="w-full max-w-xs">
         <form className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4" onSubmit={SubmitForm}>
           <div className="mb-4">

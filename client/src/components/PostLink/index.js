@@ -1,6 +1,7 @@
 import React from 'react'
+import moment from 'moment'
 
-const PostLink = ({ _id, title, body, SelectPostHandler }) => {
+const PostLink = ({ _id, title, body, SelectPostHandler, createdAt }) => {
   return (
     <>
       <li
@@ -8,7 +9,7 @@ const PostLink = ({ _id, title, body, SelectPostHandler }) => {
         onClick={() => SelectPostHandler(_id)}>
         <h1 className="text-2xl font-bold">{title}</h1>
         <span className="truncate">{body}</span>
-        <small>Created on - </small>
+        <small className="self-end">{moment(createdAt).fromNow()}</small>
       </li>
     </>
   )

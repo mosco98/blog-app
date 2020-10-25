@@ -74,3 +74,16 @@ nav {
   background: red;
   // width: 10rem;
 }
+
+footer {
+  position: absolute;
+  width: 100%;
+  background-color: white;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  bottom: 0;
+  a {
+    color: #1de9b6;
+  }
+}

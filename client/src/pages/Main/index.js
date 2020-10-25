@@ -1,7 +1,7 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 
-import { AddPostForm, NavBar, Post, PostLink } from '../../components'
+import { AddPostForm, Footer, NavBar, Post, PostLink } from '../../components'
 import storage from '../../utils/Storage'
 
 const SERVER = 'https://blog-app-moscode.herokuapp.com'
@@ -75,6 +75,7 @@ const Main = () => {
       {viewPost && (
         <Post updateViewPost={updateViewPost} selectedPost={selectedPost} SelectPostHandler={SelectPostHandler} />
       )}
+      <Footer />
     </div>
   )
 }

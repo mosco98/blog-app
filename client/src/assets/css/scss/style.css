@@ -49,8 +49,6 @@ nav {
 .add-form button {
   -ms-flex-item-align: end;
       align-self: flex-end;
-  right: 0;
-  bottom: 0;
 }
 
 .post-list-group {
@@ -84,9 +82,35 @@ nav {
   margin: 10px 0;
 }
 
+.post span {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
 .icons-ctn {
   right: 0;
   z-index: 25;
   background: red;
+}
+
+footer {
+  position: absolute;
+  width: 100%;
+  background-color: white;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  bottom: 0;
+}
+
+footer a {
+  color: #1de9b6;
 }
 /*# sourceMappingURL=style.css.map */

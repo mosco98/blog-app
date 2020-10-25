@@ -12,8 +12,7 @@ const App = () => {
 
   return (
     <>
-      {/* <ProtectedRoute exact path="/app" component={Main} /> */}
-      <Route exact path="/app" component={Main} />
+      <ProtectedRoute path="/" component={Main} />
       <Route path="/login" component={Login} />
       <Route path="/register" component={Register} />
     </>

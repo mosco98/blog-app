@@ -11,12 +11,13 @@ const SERVER = 'https://blog-app-moscode.herokuapp.com'
 const Login = ({ history }) => {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
+  const [loggingIn, updateLoggingIn] = useState(false)
   const [error, updateError] = useState(false)
   const [errMsg, setErrMsg] = useState('')
 
   function SubmitForm(e) {
     e.preventDefault()
-
+    updateLoggingIn(true)
     axios
       .post(`${SERVER}/login`, { email, password })
       .then(({ data }) => {
@@ -28,15 +29,18 @@ const Login = ({ history }) => {
           auth.onAuthChange()
           updateError(false)
           setErrMsg('')
-          history.push('/app')
+          updateLoggingIn(false)
+          history.push('/')
         } else {
           updateError(true)
           setErrMsg(data.msg)
+          updateLoggingIn(false)
         }
       })
       .catch((err) => {
         updateError(true)
         setErrMsg(err.message)
+        updateLoggingIn(false)
       })
   }
   return (
@@ -71,9 +75,13 @@ const Login = ({ history }) => {
 
           <div className="flex items-center justify-between">
             <button
-              className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+              className={
+                loggingIn
+                  ? 'bg-gray-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline'
+                  : 'bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline'
+              }
               type="submit">
-              Sign In
+              {loggingIn ? 'Signing in...' : 'Sign In'}
             </button>
             <small className="inline-block align-baseline ">
               New user?

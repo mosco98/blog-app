@@ -42,7 +42,7 @@ const Post = ({ updateViewPost, selectedPost, SelectPostHandler }) => {
           <div className="over-lay" onClick={() => updateViewPost(false)} />
           <div className="post p-5 shadow-sm rounded flex flex-col items-center justify-center">
             <div>
-              <h1 className="text-1xl font-bold text-center">{title}</h1>
+              <h1 className="text-2xl font-bold text-center">{title}</h1>
               <small className="text-left" style={{ fontSize: '15px' }}>
                 {body}
               </small>

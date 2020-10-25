@@ -29,7 +29,7 @@ const Register = ({ history }) => {
           } = data
           storage.setToken(token)
           auth.onAuthChange()
-          history.push('/main')
+          history.push('/')
           updateError(false)
           setErrMsg('')
         }
